@@ -1,0 +1,29 @@
+{
+  "name": "novel-grab-node",
+  "version": "1.0.0",
+  "description": "A novel crawling desktop app built with React + Vite + Ant Design + Express + Electron",
+  "main": "main.js",
+  "scripts": {
+    "dev:renderer": "vite",
+    "dev": "concurrently -n vite,electron \"npm run dev:renderer\" \"electron .\"",
+    "build": "vite build",
+    "start": "vite build && electron .",
+    "server": "node server.js"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.6.0",
+    "antd": "^5.23.0",
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "express": "^4.21.0",
+    "iconv-lite": "^0.7.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.4.0",
+    "concurrently": "^9.1.0",
+    "electron": "^42.4.1",
+    "vite": "^6.2.0"
+  }
+}

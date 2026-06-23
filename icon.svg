@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <!-- 背景渐变 -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f0f1a"/>
+      <stop offset="40%" stop-color="#141428"/>
+      <stop offset="100%" stop-color="#0a0a14"/>
+    </linearGradient>
+
+    <!-- 金色文字渐变 -->
+    <linearGradient id="textGold" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0%" stop-color="#F5E6C8"/>
+      <stop offset="30%" stop-color="#E8C97A"/>
+      <stop offset="60%" stop-color="#D4A843"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+
+    <!-- 扫描线渐变 -->
+    <linearGradient id="scanGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#00E5FF" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- 发光滤镜 -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- 外发光 -->
+    <filter id="outerGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.835  0 0 0 0 0.788  0 0 0 0 0.263  0 0 0 0.15 0" result="colored"/>
+      <feMerge>
+        <feMergeNode in="colored"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- 赛博角标路径 -->
+    <g id="corner">
+      <path d="M0 36 L0 0 L36 0" fill="none" stroke="#00E5FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="0" cy="36" r="4" fill="#00E5FF"/>
+      <circle cx="36" cy="0" r="4" fill="#00E5FF"/>
+    </g>
+
+    <!-- 纹路图案 -->
+    <pattern id="diagonalLines" patternUnits="userSpaceOnUse" width="4" height="8" patternTransform="rotate(45)">
+      <rect width="4" height="8" fill="none"/>
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#00E5FF" stroke-width="0.5" stroke-opacity="0.06"/>
+    </pattern>
+
+    <!-- 数据点网格 -->
+    <pattern id="dotGrid" patternUnits="userSpaceOnUse" width="32" height="32">
+      <circle cx="16" cy="16" r="0.8" fill="#00E5FF" fill-opacity="0.04"/>
+    </pattern>
+  </defs>
+
+  <!-- 图标背景圆角方块 -->
+  <rect x="32" y="32" width="960" height="960" rx="224" ry="224" fill="url(#bgGrad)"/>
+
+  <!-- 细边框 -->
+  <rect x="32" y="32" width="960" height="960" rx="224" ry="224" fill="none" stroke="#00E5FF" stroke-width="1.5" stroke-opacity="0.12"/>
+
+  <!-- 内层赛博边框 -->
+  <rect x="80" y="80" width="864" height="864" rx="180" ry="180" fill="none" stroke="#00E5FF" stroke-width="1" stroke-opacity="0.06" stroke-dasharray="12 24"/>
+
+  <!-- 数据点网格覆盖 -->
+  <rect x="32" y="32" width="960" height="960" rx="224" ry="224" fill="url(#dotGrid)"/>
+
+  <!-- 对角纹路 -->
+  <rect x="32" y="32" width="960" height="960" rx="224" ry="224" fill="url(#diagonalLines)"/>
+
+  <!-- 四角赛博标 -->
+  <use href="#corner" x="68" y="68"/>
+  <use href="#corner" x="956" y="68" transform="translate(1924, 0) scale(-1, 1)"/>
+  <use href="#corner" x="68" y="956" transform="translate(0, 1924) scale(1, -1)"/>
+  <use href="#corner" x="956" y="956" transform="translate(1924, 1924) scale(-1, -1)"/>
+
+  <!-- 对角光带 - 左上到右下 -->
+  <line x1="120" y1="120" x2="320" y2="320" stroke="#00E5FF" stroke-width="1.5" stroke-opacity="0.15"/>
+  <line x1="130" y1="120" x2="320" y2="310" stroke="#00E5FF" stroke-width="0.8" stroke-opacity="0.08"/>
+
+  <!-- 对角光带 - 右下到左上 -->
+  <line x1="904" y1="904" x2="704" y2="704" stroke="#00E5FF" stroke-width="1.5" stroke-opacity="0.15"/>
+  <line x1="894" y1="904" x2="704" y2="714" stroke="#00E5FF" stroke-width="0.8" stroke-opacity="0.08"/>
+
+  <!-- 顶部扫描线 -->
+  <rect x="80" y="340" width="864" height="1" fill="#00E5FF" fill-opacity="0.04"/>
+  <rect x="80" y="440" width="864" height="3" fill="#00E5FF" fill-opacity="0.03"/>
+  <rect x="80" y="510" width="864" height="1" fill="#00E5FF" fill-opacity="0.04"/>
+  <rect x="80" y="610" width="864" height="2" fill="#00E5FF" fill-opacity="0.03"/>
+  <rect x="80" y="730" width="864" height="1" fill="#00E5FF" fill-opacity="0.04"/>
+
+  <!-- 中心文字装饰环 -->
+  <circle cx="512" cy="508" r="260" fill="none" stroke="#00E5FF" stroke-width="0.8" stroke-opacity="0.05"/>
+  <circle cx="512" cy="508" r="280" fill="none" stroke="#D4A843" stroke-width="0.6" stroke-opacity="0.04"/>
+
+  <!-- "方" 字 — 华文楷体 -->
+  <text x="512" y="570" text-anchor="middle" font-family="STKaiti, KaiTi, STSong, SimSun, serif" font-size="420" font-weight="normal" fill="url(#textGold)" filter="url(#outerGlow)" letter-spacing="0">方</text>
+
+  <!-- 底部副标文字 -->
+  <text x="512" y="810" text-anchor="middle" font-family="'PingFang SC', 'Heiti SC', 'Microsoft YaHei', sans-serif" font-size="36" font-weight="300" fill="#00E5FF" fill-opacity="0.35" letter-spacing="12">FANG XIU</text>
+
+  <!-- 底部装饰线 -->
+  <line x1="380" y1="835" x2="644" y2="835" stroke="#00E5FF" stroke-width="0.8" stroke-opacity="0.1"/>
+</svg>
