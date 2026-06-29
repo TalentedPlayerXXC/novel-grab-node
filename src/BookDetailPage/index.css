@@ -1,0 +1,116 @@
+.book-detail {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.book-detail__top {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  flex-shrink: 0;
+}
+
+.book-detail__progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px 8px;
+  flex-shrink: 0;
+}
+
+.book-detail__progress--done {
+  padding-bottom: 12px;
+}
+
+.book-detail__progress-text {
+  font-size: 12px;
+  color: #999;
+  white-space: nowrap;
+}
+
+.book-detail__body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  border-top: 1px solid rgba(128, 128, 128, 0.12);
+}
+
+.book-detail__sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-right: 1px solid rgba(128, 128, 128, 0.12);
+  padding: 4px 0;
+}
+
+.book-detail__ch {
+  padding: 8px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.book-detail__ch:hover {
+  background: rgba(128, 128, 128, 0.06);
+}
+
+.book-detail__ch--active {
+  background: rgba(24, 144, 255, 0.08);
+  color: #1677ff;
+  font-weight: 500;
+}
+
+.book-detail__content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px 48px;
+}
+
+.book-detail__content-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.12);
+}
+
+.book-detail__content-body {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 2.2;
+}
+
+.book-detail__content-body p {
+  text-indent: 2em;
+  margin: 0 0 0.5em 0;
+  white-space: pre-wrap;
+}
+
+.book-detail__loading {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-detail__content-empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-detail__content-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}

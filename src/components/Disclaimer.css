@@ -1,0 +1,13 @@
+.disclaimer {
+  text-align: center;
+}
+
+.disclaimer__icon {
+  margin-bottom: 16px;
+}
+
+.disclaimer__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}

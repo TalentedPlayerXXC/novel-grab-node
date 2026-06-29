@@ -1,0 +1,26 @@
+.app-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.app-bg--starry.app-bg--dark { background: linear-gradient(180deg, #0a1628, #141e2e, #0f1724); }
+.app-bg--starry.app-bg--light { background: linear-gradient(180deg, #e8f0fe, #f5f7fa, #eef2f7); }
+.app-bg--cyberpunk.app-bg--dark { background: linear-gradient(180deg, #0a0010, #1a0028, #0d0018); }
+.app-bg--cyberpunk.app-bg--light { background: linear-gradient(180deg, #fce4ff, #fdf6ff, #f5e8ff); }
+
+.app-layout {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: transparent;
+}

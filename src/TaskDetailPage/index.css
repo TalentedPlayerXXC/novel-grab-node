@@ -1,0 +1,36 @@
+.task {
+  padding: 32px;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.task__id {
+  margin-bottom: 24px;
+}
+
+.task__progress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+}
+
+.task__waiting {
+  text-align: center;
+  padding: 48px 0;
+}
+
+.task__result {
+  margin-top: 24px;
+}
+
+.task__result-item {
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+}

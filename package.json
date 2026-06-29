@@ -1,29 +1,59 @@
 {
-  "name": "novel-grab-node",
+  "name": "novel-grab",
   "version": "1.0.0",
-  "description": "A novel crawling desktop app built with React + Vite + Ant Design + Express + Electron",
+  "description": "NovelGrab Desktop App",
   "main": "main.js",
   "scripts": {
-    "dev:renderer": "vite",
-    "dev": "concurrently -n vite,electron \"npm run dev:renderer\" \"electron .\"",
+    "dev": "vite --host",
     "build": "vite build",
-    "start": "vite build && electron .",
-    "server": "node server.js"
+    "start": "electron .",
+    "preview": "vite build && electron .",
+    "pack:mac": "vite build && electron-builder --mac --arm64"
   },
   "dependencies": {
     "@ant-design/icons": "^5.6.0",
     "antd": "^5.23.0",
     "axios": "^1.7.9",
-    "cheerio": "^1.0.0",
-    "express": "^4.21.0",
-    "iconv-lite": "^0.7.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-router": "^7.15.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.4.0",
-    "concurrently": "^9.1.0",
     "electron": "^42.4.1",
+    "electron-builder": "^26.15.3",
     "vite": "^6.2.0"
+  },
+  "build": {
+    "appId": "com.novelgrab.desktop",
+    "productName": "NovelGrab",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "preload.js",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "NovelGrabServer",
+        "to": "NovelGrabServer"
+      }
+    ],
+    "mac": {
+      "icon": "build/icon.png",
+      "target": "dmg",
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "icon": "build/icon.png",
+      "target": "nsis"
+    },
+    "linux": {
+      "icon": "build/icon.png",
+      "target": "AppImage"
+    }
   }
 }

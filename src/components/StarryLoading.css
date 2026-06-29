@@ -1,0 +1,122 @@
+.starry-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.starry-loading--small {
+  gap: 8px;
+}
+
+.starry-loading__scanlines {
+  position: absolute;
+  inset: -20px;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 45, 149, 0.02) 2px,
+    rgba(255, 45, 149, 0.02) 3px
+  );
+}
+
+.starry-loading__field {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  z-index: 1;
+}
+
+.starry-loading__field--small {
+  width: 60px;
+  height: 60px;
+}
+
+.starry-loading__field--cyber {
+  z-index: 1;
+}
+
+.starry-loading__orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--r) * 1px);
+  height: calc(var(--r) * 1px);
+  margin-left: calc(var(--r) * -0.5px);
+  margin-top: calc(var(--r) * -0.5px);
+  border: 1px solid rgba(9, 88, 217, 0.15);
+  border-radius: 50%;
+  animation: orbit-rotate calc(var(--t) * 1s) linear infinite;
+  animation-delay: var(--d);
+}
+
+.starry-loading--cyber .starry-loading__orbit {
+  border-color: rgba(255, 45, 149, 0.12);
+}
+
+.starry-loading__planet {
+  position: absolute;
+  top: -3px;
+  left: calc(50% - 3px);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: 0 0 12px var(--c), 0 0 24px var(--c);
+}
+
+.starry-loading--small .starry-loading__planet {
+  width: 4px;
+  height: 4px;
+  top: -2px;
+  left: calc(50% - 2px);
+  box-shadow: 0 0 6px var(--c), 0 0 12px var(--c);
+}
+
+.starry-loading__text {
+  font-size: 14px;
+  color: #999;
+  animation: text-pulse 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+.starry-loading__text--small {
+  font-size: 12px;
+}
+
+.starry-loading__text--cyber {
+  font-family: 'Courier New', monospace;
+  color: #ff2d95;
+  letter-spacing: 2px;
+  animation: text-pulse 1.5s ease-in-out infinite;
+}
+
+.starry-loading__text--cyber::after {
+  content: '█';
+  margin-left: 4px;
+  color: #00f0ff;
+  animation: cursor-blink 0.8s step-end infinite;
+}
+
+.starry-loading__text--cyber.starry-loading__text--small::after {
+  display: none;
+}
+
+@keyframes orbit-rotate {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes text-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

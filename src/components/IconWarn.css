@@ -1,0 +1,10 @@
+.icon-warn {
+  display: inline-block;
+  vertical-align: middle;
+  animation: warn-pulse 2s ease-in-out infinite;
+}
+
+@keyframes warn-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}

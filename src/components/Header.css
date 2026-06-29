@@ -1,0 +1,144 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  height: 56px;
+  line-height: 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+.header__scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 45, 149, 0.03) 2px,
+    rgba(255, 45, 149, 0.03) 3px
+  );
+}
+
+.header__stars {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.header__star {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--star-color);
+  opacity: 0;
+  box-shadow: 0 0 4px var(--star-color);
+  animation: header-star-twinkle var(--dur, 1.5s) ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+  width: var(--s, 2px);
+  height: var(--s, 2px);
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+}
+
+.header__title {
+  position: relative;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px;
+}
+
+.header__title::after {
+  content: 'NovelGrab';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: transparent;
+  text-shadow: 0 0 8px var(--glow-color), 0 0 18px var(--glow-color);
+  animation: title-glow 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.header__title--cyber {
+  letter-spacing: 4px;
+  text-shadow: 0 0 10px var(--glow-color), 0 0 30px var(--glow-color);
+}
+
+.header__title--cyber::before {
+  content: 'NovelGrab';
+  position: absolute;
+  left: -2px;
+  top: 0;
+  color: transparent;
+  text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+  clip-path: inset(0 0 50% 0);
+  animation: glitch-title 3s infinite;
+  pointer-events: none;
+}
+
+.header__title--cyber::after {
+  content: 'NovelGrab';
+  position: absolute;
+  left: 2px;
+  top: 0;
+  color: transparent;
+  text-shadow: 0 0 10px #ff2d95, 0 0 20px #ff2d95;
+  clip-path: inset(50% 0 0 0);
+  animation: glitch-title 3s infinite reverse;
+  pointer-events: none;
+}
+
+@keyframes title-glow {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes glitch-title {
+  0%, 90%, 100% { transform: translate(0); }
+  92% { transform: translate(-3px, 1px); }
+  94% { transform: translate(3px, -1px); }
+  96% { transform: translate(-2px, -1px); }
+  98% { transform: translate(2px, 1px); }
+}
+
+.header__tabs {
+  display: flex;
+  gap: 4px;
+  margin-left: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.header__tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.header__tab:hover {
+  opacity: 0.8;
+}
+
+.header__tab--active {
+  font-weight: 500;
+}
+
+@keyframes header-star-twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.1); }
+}

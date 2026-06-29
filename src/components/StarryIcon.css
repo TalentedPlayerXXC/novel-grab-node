@@ -1,0 +1,24 @@
+.starry-icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.starry-icon__dot {
+  position: absolute;
+  border-radius: 50%;
+  background: #1677ff;
+  box-shadow: 0 0 6px #1677ff;
+  animation: star-twinkle var(--dur, 1.5s) ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+  width: var(--s, 3px);
+  height: var(--s, 3px);
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.6); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
